@@ -1,4 +1,7 @@
 #include <iostream>
+#include <cstdlib>
+#include <random>
+#include <time.h>
 #include "turma.h"
 #include "sapo.h"
 
@@ -50,4 +53,9 @@ Turma::~Turma(){
 
 int Turma::getTotal(){
 	return total;
+}
+
+int Turma::geraRandom(){
+	int r;
+	r=rand()%4;
 }
