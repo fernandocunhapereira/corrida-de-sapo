@@ -20,7 +20,6 @@ int main(){
 	t.addSapo(); //adicionando sapos participantes
 	t.addSapo();
 	t.addSapo();
-	t.addSapo();
 	
 	t.participantes[0].setNome("Joao"); //identificando sapos
 	t.participantes[0].setNumero(53);
@@ -29,8 +28,17 @@ int main(){
 	t.participantes[2].setNome("Francisco");
 	t.participantes[2].setNumero(1231);
 
+for(int i=0;i<10;i++){
+	t.participantes[0].setDistancia(Turma::geraRandom());
+	std::cout<<t.participantes[0].getDistancia()<<std::endl;
+}
+
+
+
+/* TESTE DO GERADOR DE NUMERO RANDOMICO
 	Turma::random=Turma::geraRandom();
 	std::cout<<Turma::random<<std::endl;
+*/
 
 /*  TESTE PARA LISTAR NOMES SAPOS E TURMA
 	std::cout<<"nome da turma = "<<t.getDescricao()<<std::endl;

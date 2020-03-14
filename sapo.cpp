@@ -17,9 +17,18 @@ int Sapo::getNumero(){
 	return numero;
 }
 
+void Sapo::setDistancia(int dis_){
+	distancia=distancia+dis_;
+}
+
+int Sapo::getDistancia(){
+	return distancia;
+}
+
 Sapo::Sapo(){
 	nome="sem nome";
 	numero=0;
+	distancia=0;
 }
 
 Sapo::Sapo(Sapo &s){
