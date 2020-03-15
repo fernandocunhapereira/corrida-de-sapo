@@ -18,7 +18,7 @@ int Sapo::getNumero(){
 }
 
 void Sapo::setDistancia(int dis_){
-	distancia=distancia+dis_;
+	distancia=dis_;
 }
 
 int Sapo::getDistancia(){

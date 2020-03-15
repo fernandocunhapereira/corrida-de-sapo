@@ -4,7 +4,7 @@
 #include <time.h>
 #include "turma.h"
 
-int Turma::total=30; //distancia a percorrer
+int Turma::total=10; //distancia a percorrer
 int Turma::random=0; //numero aleatorio (distancia do pulo)
 
 int main(){
@@ -29,62 +29,30 @@ int main(){
 	t.participantes[2].setNumero(1231);
 
 	std::cout<<"distancias antes da corrida"<<std::endl;
-	for(int i=0;i<3;i++){
+	for(int i=0;i<t.getCapacidade();i++){
 		std::cout<<t.participantes[i].getNome()<<" "<<t.participantes[i].getDistancia()<<std::endl;
 	}
 	std::cout<<std::endl;
 
  //ALGORITMO DA CORRIDA
-	for(int i=0; ;i++){
-		for(int j=0;j<t.getCapacidade();j++){
+	for(int i=0; ;++i){
+		for(int j=0;j<t.getCapacidade();++j){
 		t.participantes[j].setDistancia(t.participantes[j].getDistancia()+Turma::geraRandom());
-			if(t.participantes[j].getDistancia()>Turma::total){
-				std::cout<<"o sapo vencedor é "<<t.participantes[j].getNome()<<std::endl;
+			if(t.participantes[j].getDistancia()>=Turma::total){
+				std::cout<<"o sapo vencedor é "<<t.participantes[j].getNome()<<" nº "<<t.participantes[j].getNumero()<<std::endl;
 				std::cout<<"a distancia percorrida foi "<<t.participantes[j].getDistancia()<<std::endl;
 					for(int k=0;k<3;k++){
 						std::cout<<t.participantes[k].getNome()<<" "<<t.participantes[k].getDistancia()<<std::endl;
 					}
 			return 1;
+			}
 		}
-
-		}
-		/* //ALGORITMO DA CORRIDA ANTIGO ABAIXO...NAO FUNCIONAVA TAMBEM
-		t.participantes[0].setDistancia(t.participantes[0].getDistancia()+Turma::geraRandom());
-		if(t.participantes[0].getDistancia()>Turma::total){
-			std::cout<<"o sapo vencedor é "<<t.participantes[0].getNome()<<std::endl;
-			std::cout<<"a distancia percorrida foi "<<t.participantes[0].getDistancia()<<std::endl;
-				for(int i=0;i<3;i++){
-					std::cout<<t.participantes[i].getNome()<<" "<<t.participantes[i].getDistancia()<<std::endl;
-				}
-			return 1;
-		}
-		t.participantes[1].setDistancia(t.participantes[1].getDistancia()+Turma::geraRandom());
-		if(t.participantes[1].getDistancia()>Turma::total){
-			std::cout<<"o sapo vencedor é "<<t.participantes[1].getNome()<<std::endl;
-			std::cout<<"a distancia percorrida foi "<<t.participantes[1].getDistancia()<<std::endl;
-				for(int i=0;i<3;i++){
-					std::cout<<t.participantes[i].getNome()<<" "<<t.participantes[i].getDistancia()<<std::endl;
-				}			
-			return 1;
-		}
-		t.participantes[2].setDistancia(t.participantes[2].getDistancia()+Turma::geraRandom());
-		if(t.participantes[2].getDistancia()>Turma::total){
-			std::cout<<"o sapo vencedor é "<<t.participantes[2].getNome()<<std::endl;
-			std::cout<<"a distancia percorrida foi "<<t.participantes[2].getDistancia()<<std::endl;
-				for(int i=0;i<3;i++){
-					std::cout<<t.participantes[i].getNome()<<" "<<t.participantes[i].getDistancia()<<std::endl;
-				}
-			return 1;
-		}*/
 		//impressao dos resultados da rodada
-		std::cout<<"rodada "<<i<<" da corrida"<<std::endl;
-		for(int i=0;i<3;i++){
+		std::cout<<"rodada "<<i+1<<" da corrida"<<std::endl;
+		for(int i=0;i<t.getCapacidade();i++){
 			std::cout<<t.participantes[i].getNome()<<" "<<t.participantes[i].getDistancia()<<std::endl;
 		}
 	std::cout<<std::endl;
-	}
-	for(int i=0;i<3;i++){
-		std::cout<<t.participantes[i].getNome()<<" "<<t.participantes[i].getDistancia()<<std::endl;
 	}
 
 /*  //TESTE DO CONTADOR DE DISTANCIA DO SAPO
